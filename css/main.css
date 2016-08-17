@@ -1,0 +1,9 @@
+.title {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-control {
+  width: 33%;
+  margin: 1% auto;
+}
