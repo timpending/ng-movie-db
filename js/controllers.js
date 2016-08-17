@@ -1,19 +1,18 @@
-app.controller('SearchController', function($scope, $http){
+app.controller('SearchController', function($scope, $http, MovieSearchService){
   $scope.view = {};
   $scope.view.error = null;
-
-  $scope.submitSearch = function() {
-    var movie = $scope.movieSearch.movie
-    console.log(movie);
-    console.log('******');
-    $http.get('http://www.omdbapi.com/?s='+movie).then(function successCallback(data){
-      console.log(data);
-      $scope.view.movies = data.data.Search
-    }, function errorCallback(response){
-      $scope.view.error = 'There was an error with the search.'
-    });
-
+  $scope.submitSearch = function(movieSearch) {
+      MovieSearchService.query(movieSearch).then(function(results){
+      // console.log(results);
+      // console.log('8888');
+      $scope.view.movies = results.data.Search
+      // console.log($scope.view.movies);
+      return $scope.view.movies
+    }).then(function(movies){
+      console.log(movies);
+    $scope.view.movies = movies
+  })
+  console.log($scope.view.movies);
+  // undefined
   }
-
-
 })
