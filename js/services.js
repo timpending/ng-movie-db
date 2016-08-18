@@ -4,6 +4,12 @@ app.service('MovieSearchService', function($http){
       var movie = movie.movie
       return $http.get('http://www.omdbapi.com/?s='+movie)
     },
-  results: []
+  results: [],
+  singleMovie: function(id){
+    return $http.get('http://www.omdbapi.com/?i='+id).then(function(data){
+      return data
+    })
+  },
+  movie: {}
   }
 })

@@ -30,3 +30,11 @@
   margin-left: 20%;
   margin-top: 50%
 }
+
+.container{
+  justify-content: center;
+}
+
+.no-bg {
+  background-color: transparent;
+}
