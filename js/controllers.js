@@ -1,18 +1,22 @@
-app.controller('SearchController', function($scope, $http, MovieSearchService){
+app.controller('SearchController', function($scope, $http, MovieSearchService, $route, $location){
   $scope.view = {};
   $scope.view.error = null;
-  $scope.submitSearch = function(movieSearch) {
-      MovieSearchService.query(movieSearch).then(function(results){
-      // console.log(results);
-      // console.log('8888');
-      $scope.view.movies = results.data.Search
-      // console.log($scope.view.movies);
-      return $scope.view.movies
-    }).then(function(movies){
-      console.log(movies);
-    $scope.view.movies = movies
-  })
-  console.log($scope.view.movies);
-  // undefined
+  $scope.submitSearch = function() {
+    MovieSearchService.query($scope.movieSearch).then(function(results){
+      MovieSearchService.results = results.data.Search
+      $route.reload();
+    })
   }
+})
+
+app.controller('MoviesController', function ($scope, MovieSearchService, $location, $http) {
+  $scope.view = {};
+  // $scope.view.error = null;
+  $scope.view.movies = MovieSearchService.results;
+  // $scope.submitSearch = function() {
+  //   MovieSearchService.query($scope.movieSearch).then(function(results){
+  //     MovieSearchService.results = results.data.Search
+  //     $location.path('/');
+    // })
+  // }
 })

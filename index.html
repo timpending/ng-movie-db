@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <div ng-controller='SearchController'>
-      <div class='title'>
+      <div class='title' ng-controller='SearchController'>
         <h1>An Angular Movie Database Search</h1>
           <div class='lead'>
               <p>Using Angular & the OMDB API to display movie results</p>
@@ -17,11 +16,12 @@
           <form ng-model='movieSearch'>
             <label class='hidden' for='name'></label>
             <input class='form-control' type='text' ng-model='movieSearch.movie' name='movie' placeholder="Search for a movie here">
-            <input class='btn btn-info' type='button' ng-click='submitSearch(movieSearch)' value='Find It'>
+            <input class='btn btn-info' type='button' ng-click='submitSearch()' value='Find It'>
           </form>
           <div ng-if="view.error"><p>{{view.error}}</p></div>
           <hr>
       </div>
+
       <div class='container'>
         <div ng-view></div>
       </div>

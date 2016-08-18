@@ -2,9 +2,9 @@ var app = angular.module('AngularMovieDB', ['ngRoute']);
 
 app.config(function($routeProvider) {
   $routeProvider
-    .when('/', {
+  .when('/', {
       templateUrl: 'partials/splash.html',
-      controller: 'SearchController'
+      controller: 'MoviesController'
     })
     // .when('/id/:movieId', {
     //   templateUrl: 'partials/show.html',

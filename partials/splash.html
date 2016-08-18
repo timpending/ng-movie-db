@@ -1,10 +1,9 @@
-<h1>HOW NOW BROWN COW</h1>
-<div ng-if='view.movies'>
+<!-- <h1>HOW NOW BROWN COW</h1> -->
   <div ng-repeat='movie in view.movies'>
     <div class='col-md-6'>
       <div class='panel'>
         <div class='col-md-6'>
-          <div class='content'><a href='/{{movie.imdbID}}'>{{movie.Title}}<br>Released: {{movie.Year}}</a></div>
+          <div class='content'><a href='id/{{movie.imdbID}}'>{{movie.Title}}<br>Released: {{movie.Year}}</a></div>
         </div>
         <div class='col-md-6'>
           <img src='{{movie.Poster}}' />
@@ -12,4 +11,3 @@
       </div>
     </div>
   </div>
-</div>
